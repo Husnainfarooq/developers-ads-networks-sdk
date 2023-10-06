@@ -1,5 +1,6 @@
 # YMG Ads Network SDK
 A library for displaying ads from multiple ad networks
+if you are having issue building the gradle because of iron source you can use my forked version it has removed the iron source
 
 # Installation
 
