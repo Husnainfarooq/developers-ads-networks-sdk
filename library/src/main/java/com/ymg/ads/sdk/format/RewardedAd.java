@@ -26,11 +26,11 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.FullScreenContentCallback;
 import com.google.android.gms.ads.LoadAdError;
 import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback;
-import com.ironsource.mediationsdk.IronSource;
-import com.ironsource.mediationsdk.adunit.adapter.utility.AdInfo;
-import com.ironsource.mediationsdk.logger.IronSourceError;
-import com.ironsource.mediationsdk.model.Placement;
-import com.ironsource.mediationsdk.sdk.LevelPlayRewardedVideoListener;
+//import com.ironsource.mediationsdk.IronSource;
+//import com.ironsource.mediationsdk.adunit.adapter.utility.AdInfo;
+//import com.ironsource.mediationsdk.logger.IronSourceError;
+//import com.ironsource.mediationsdk.model.Placement;
+//import com.ironsource.mediationsdk.sdk.LevelPlayRewardedVideoListener;
 import com.ymg.ads.sdk.helper.AppLovinCustomEventInterstitial;
 import com.ymg.ads.sdk.util.Constant;
 import com.ymg.ads.sdk.util.OnRewardedAdCompleteListener;
@@ -69,7 +69,7 @@ public class RewardedAd {
         private String unityRewardedId = "";
         private String applovinMaxRewardedId = "";
         private String applovinDiscRewardedZoneId = "";
-        private String ironSourceRewardedId = "";
+//        private String ironSourceRewardedId = "";
         private String wortiseRewardedId = "";
         private int placementStatus = 1;
         private boolean legacyGDPR = false;
@@ -133,10 +133,10 @@ public class RewardedAd {
             return this;
         }
 
-        public Builder setIronSourceRewardedId(String ironSourceRewardedId) {
-            this.ironSourceRewardedId = ironSourceRewardedId;
-            return this;
-        }
+//        public Builder setIronSourceRewardedId(String ironSourceRewardedId) {
+//            this.ironSourceRewardedId = ironSourceRewardedId;
+//            return this;
+//        }
 
         public Builder setWortiseRewardedId(String wortiseRewardedId) {
             this.wortiseRewardedId = wortiseRewardedId;
@@ -395,47 +395,47 @@ public class RewardedAd {
                         });
                         break;
 
-                    case Constant.IRONSOURCE:
-                    case Constant.FAN_BIDDING_IRONSOURCE:
-                        IronSource.setLevelPlayRewardedVideoListener(new LevelPlayRewardedVideoListener() {
-                            @Override
-                            public void onAdAvailable(AdInfo adInfo) {
-                                Log.d(TAG, "[" + mainAds + "] " + "rewarded ad is ready");
-                            }
-
-                            @Override
-                            public void onAdUnavailable() {
-
-                            }
-
-                            @Override
-                            public void onAdOpened(AdInfo adInfo) {
-
-                            }
-
-                            @Override
-                            public void onAdShowFailed(IronSourceError ironSourceError, AdInfo adInfo) {
-                                loadRewardedBackupAd(onComplete, onDismiss);
-                                Log.d(TAG, "[" + mainAds + "] " + "failed to load rewarded ad: " + ironSourceError.getErrorMessage() + ", try to load backup ad: " + backupAds);
-                            }
-
-                            @Override
-                            public void onAdClicked(Placement placement, AdInfo adInfo) {
-
-                            }
-
-                            @Override
-                            public void onAdRewarded(Placement placement, AdInfo adInfo) {
-                                onComplete.onRewardedAdComplete();
-                                Log.d(TAG, "[" + mainAds + "] " + "rewarded ad complete");
-                            }
-
-                            @Override
-                            public void onAdClosed(AdInfo adInfo) {
-                                loadRewardedAd(onComplete, onDismiss);
-                            }
-                        });
-                        break;
+//                    case Constant.IRONSOURCE:
+//                    case Constant.FAN_BIDDING_IRONSOURCE:
+//                        IronSource.setLevelPlayRewardedVideoListener(new LevelPlayRewardedVideoListener() {
+//                            @Override
+//                            public void onAdAvailable(AdInfo adInfo) {
+//                                Log.d(TAG, "[" + mainAds + "] " + "rewarded ad is ready");
+//                            }
+//
+//                            @Override
+//                            public void onAdUnavailable() {
+//
+//                            }
+//
+//                            @Override
+//                            public void onAdOpened(AdInfo adInfo) {
+//
+//                            }
+//
+//                            @Override
+//                            public void onAdShowFailed(IronSourceError ironSourceError, AdInfo adInfo) {
+//                                loadRewardedBackupAd(onComplete, onDismiss);
+//                                Log.d(TAG, "[" + mainAds + "] " + "failed to load rewarded ad: " + ironSourceError.getErrorMessage() + ", try to load backup ad: " + backupAds);
+//                            }
+//
+//                            @Override
+//                            public void onAdClicked(Placement placement, AdInfo adInfo) {
+//
+//                            }
+//
+//                            @Override
+//                            public void onAdRewarded(Placement placement, AdInfo adInfo) {
+//                                onComplete.onRewardedAdComplete();
+//                                Log.d(TAG, "[" + mainAds + "] " + "rewarded ad complete");
+//                            }
+//
+//                            @Override
+//                            public void onAdClosed(AdInfo adInfo) {
+//                                loadRewardedAd(onComplete, onDismiss);
+//                            }
+//                        });
+//                        break;
 
                     case Constant.WORTISE:
                         wortiseRewardedAd = new com.wortise.ads.rewarded.RewardedAd(activity, wortiseRewardedId);
@@ -712,46 +712,46 @@ public class RewardedAd {
                         });
                         break;
 
-                    case Constant.IRONSOURCE:
-                    case Constant.FAN_BIDDING_IRONSOURCE:
-                        IronSource.setLevelPlayRewardedVideoListener(new LevelPlayRewardedVideoListener() {
-                            @Override
-                            public void onAdAvailable(AdInfo adInfo) {
-                                Log.d(TAG, "[" + backupAds + "] [backup] " + "rewarded ad is ready");
-                            }
-
-                            @Override
-                            public void onAdUnavailable() {
-
-                            }
-
-                            @Override
-                            public void onAdOpened(AdInfo adInfo) {
-
-                            }
-
-                            @Override
-                            public void onAdShowFailed(IronSourceError ironSourceError, AdInfo adInfo) {
-                                Log.d(TAG, "[" + backupAds + "] [backup] " + "failed to load rewarded ad: " + ironSourceError.getErrorMessage() + ", try to load backup ad: " + backupAds);
-                            }
-
-                            @Override
-                            public void onAdClicked(Placement placement, AdInfo adInfo) {
-
-                            }
-
-                            @Override
-                            public void onAdRewarded(Placement placement, AdInfo adInfo) {
-                                onComplete.onRewardedAdComplete();
-                                Log.d(TAG, "[" + backupAds + "] [backup] " + "rewarded ad complete");
-                            }
-
-                            @Override
-                            public void onAdClosed(AdInfo adInfo) {
-                                loadRewardedAd(onComplete, onDismiss);
-                            }
-                        });
-                        break;
+//                    case Constant.IRONSOURCE:
+//                    case Constant.FAN_BIDDING_IRONSOURCE:
+//                        IronSource.setLevelPlayRewardedVideoListener(new LevelPlayRewardedVideoListener() {
+//                            @Override
+//                            public void onAdAvailable(AdInfo adInfo) {
+//                                Log.d(TAG, "[" + backupAds + "] [backup] " + "rewarded ad is ready");
+//                            }
+//
+//                            @Override
+//                            public void onAdUnavailable() {
+//
+//                            }
+//
+//                            @Override
+//                            public void onAdOpened(AdInfo adInfo) {
+//
+//                            }
+//
+//                            @Override
+//                            public void onAdShowFailed(IronSourceError ironSourceError, AdInfo adInfo) {
+//                                Log.d(TAG, "[" + backupAds + "] [backup] " + "failed to load rewarded ad: " + ironSourceError.getErrorMessage() + ", try to load backup ad: " + backupAds);
+//                            }
+//
+//                            @Override
+//                            public void onAdClicked(Placement placement, AdInfo adInfo) {
+//
+//                            }
+//
+//                            @Override
+//                            public void onAdRewarded(Placement placement, AdInfo adInfo) {
+//                                onComplete.onRewardedAdComplete();
+//                                Log.d(TAG, "[" + backupAds + "] [backup] " + "rewarded ad complete");
+//                            }
+//
+//                            @Override
+//                            public void onAdClosed(AdInfo adInfo) {
+//                                loadRewardedAd(onComplete, onDismiss);
+//                            }
+//                        });
+//                        break;
 
                     case Constant.WORTISE:
                         wortiseRewardedAd = new com.wortise.ads.rewarded.RewardedAd(activity, wortiseRewardedId);
@@ -903,14 +903,14 @@ public class RewardedAd {
                         }
                         break;
 
-                    case Constant.IRONSOURCE:
-                    case Constant.FAN_BIDDING_IRONSOURCE:
-                        if (IronSource.isRewardedVideoAvailable()) {
-                            IronSource.showRewardedVideo(ironSourceRewardedId);
-                        } else {
-                            showRewardedBackupAd(onComplete, onDismiss, onError);
-                        }
-                        break;
+//                    case Constant.IRONSOURCE:
+//                    case Constant.FAN_BIDDING_IRONSOURCE:
+//                        if (IronSource.isRewardedVideoAvailable()) {
+//                            IronSource.showRewardedVideo(ironSourceRewardedId);
+//                        } else {
+//                            showRewardedBackupAd(onComplete, onDismiss, onError);
+//                        }
+//                        break;
 
                     case Constant.WORTISE:
                         if (wortiseRewardedAd != null && wortiseRewardedAd.isAvailable()) {
@@ -1015,14 +1015,14 @@ public class RewardedAd {
                         }
                         break;
 
-                    case Constant.IRONSOURCE:
-                    case Constant.FAN_BIDDING_IRONSOURCE:
-                        if (IronSource.isRewardedVideoAvailable()) {
-                            IronSource.showRewardedVideo(ironSourceRewardedId);
-                        } else {
-                            onError.onRewardedAdError();
-                        }
-                        break;
+//                    case Constant.IRONSOURCE:
+//                    case Constant.FAN_BIDDING_IRONSOURCE:
+//                        if (IronSource.isRewardedVideoAvailable()) {
+//                            IronSource.showRewardedVideo(ironSourceRewardedId);
+//                        } else {
+//                            onError.onRewardedAdError();
+//                        }
+//                        break;
 
                     case Constant.WORTISE:
                         if (wortiseRewardedAd != null && wortiseRewardedAd.isAvailable()) {

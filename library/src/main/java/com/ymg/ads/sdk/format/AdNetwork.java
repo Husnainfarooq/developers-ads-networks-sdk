@@ -10,9 +10,9 @@ import static com.ymg.ads.sdk.util.Constant.FAN;
 import static com.ymg.ads.sdk.util.Constant.FAN_BIDDING_ADMOB;
 import static com.ymg.ads.sdk.util.Constant.FAN_BIDDING_AD_MANAGER;
 import static com.ymg.ads.sdk.util.Constant.FAN_BIDDING_APPLOVIN_MAX;
-import static com.ymg.ads.sdk.util.Constant.FAN_BIDDING_IRONSOURCE;
+//import static com.ymg.ads.sdk.util.Constant.FAN_BIDDING_IRONSOURCE;
 import static com.ymg.ads.sdk.util.Constant.GOOGLE_AD_MANAGER;
-import static com.ymg.ads.sdk.util.Constant.IRONSOURCE;
+//import static com.ymg.ads.sdk.util.Constant.IRONSOURCE;
 import static com.ymg.ads.sdk.util.Constant.MOPUB;
 import static com.ymg.ads.sdk.util.Constant.NONE;
 import static com.ymg.ads.sdk.util.Constant.STARTAPP;
@@ -26,7 +26,7 @@ import com.applovin.sdk.AppLovinMediationProvider;
 import com.applovin.sdk.AppLovinSdk;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.AdapterStatus;
-import com.ironsource.mediationsdk.IronSource;
+//import com.ironsource.mediationsdk.IronSource;
 import com.ymg.ads.sdk.helper.AudienceNetworkInitializeHelper;
 import com.startapp.sdk.adsbase.StartAppAd;
 import com.startapp.sdk.adsbase.StartAppSDK;
@@ -52,7 +52,7 @@ public class AdNetwork {
         private String unityGameId = "";
         private String appLovinSdkKey = "";
         private String mopubBannerId = "";
-        private String ironSourceAppKey = "";
+//        private String ironSourceAppKey = "";
         private String wortiseAppId = "";
         private boolean debug = true;
 
@@ -106,10 +106,10 @@ public class AdNetwork {
             return this;
         }
 
-        public Initialize setIronSourceAppKey(String ironSourceAppKey) {
-            this.ironSourceAppKey = ironSourceAppKey;
-            return this;
-        }
+//        public Initialize setIronSourceAppKey(String ironSourceAppKey) {
+//            this.ironSourceAppKey = ironSourceAppKey;
+//            return this;
+//        }
 
         public Initialize setWortiseAppId(String wortiseAppId) {
             this.wortiseAppId = wortiseAppId;
@@ -181,17 +181,17 @@ public class AdNetwork {
                         //Mopub has been acquired by AppLovin
                         break;
 
-                    case IRONSOURCE:
-                    case FAN_BIDDING_IRONSOURCE:
-                        String advertisingId = IronSource.getAdvertiserId(activity);
-                        IronSource.setUserId(advertisingId);
-                        IronSource.init(activity, ironSourceAppKey, () -> {
-                            Log.d(TAG, "[" + adNetwork + "] initialize complete");
-                        });
-//                        IronSource.init(activity, ironSourceAppKey, IronSource.AD_UNIT.REWARDED_VIDEO);
-//                        IronSource.init(activity, ironSourceAppKey, IronSource.AD_UNIT.INTERSTITIAL);
-//                        IronSource.init(activity, ironSourceAppKey, IronSource.AD_UNIT.BANNER);
-                        break;
+//                    case IRONSOURCE:
+//                    case FAN_BIDDING_IRONSOURCE:
+//                        String advertisingId = IronSource.getAdvertiserId(activity);
+//                        IronSource.setUserId(advertisingId);
+//                        IronSource.init(activity, ironSourceAppKey, () -> {
+//                            Log.d(TAG, "[" + adNetwork + "] initialize complete");
+//                        });
+////                        IronSource.init(activity, ironSourceAppKey, IronSource.AD_UNIT.REWARDED_VIDEO);
+////                        IronSource.init(activity, ironSourceAppKey, IronSource.AD_UNIT.INTERSTITIAL);
+////                        IronSource.init(activity, ironSourceAppKey, IronSource.AD_UNIT.BANNER);
+//                        break;
 
                     case WORTISE:
                         WortiseSdk.initialize(activity, wortiseAppId);
@@ -261,17 +261,17 @@ public class AdNetwork {
                         //Mopub has been acquired by AppLovin
                         break;
 
-                    case IRONSOURCE:
-                    case FAN_BIDDING_IRONSOURCE:
-                        String advertisingId = IronSource.getAdvertiserId(activity);
-                        IronSource.setUserId(advertisingId);
-                        IronSource.init(activity, ironSourceAppKey, () -> {
-                            Log.d(TAG, "[" + adNetwork + "] initialize complete");
-                        });
-//                        IronSource.init(activity, ironSourceAppKey, IronSource.AD_UNIT.REWARDED_VIDEO);
-//                        IronSource.init(activity, ironSourceAppKey, IronSource.AD_UNIT.INTERSTITIAL);
-//                        IronSource.init(activity, ironSourceAppKey, IronSource.AD_UNIT.BANNER);
-                        break;
+//                    case IRONSOURCE:
+//                    case FAN_BIDDING_IRONSOURCE:
+//                        String advertisingId = IronSource.getAdvertiserId(activity);
+//                        IronSource.setUserId(advertisingId);
+//                        IronSource.init(activity, ironSourceAppKey, () -> {
+//                            Log.d(TAG, "[" + adNetwork + "] initialize complete");
+//                        });
+////                        IronSource.init(activity, ironSourceAppKey, IronSource.AD_UNIT.REWARDED_VIDEO);
+////                        IronSource.init(activity, ironSourceAppKey, IronSource.AD_UNIT.INTERSTITIAL);
+////                        IronSource.init(activity, ironSourceAppKey, IronSource.AD_UNIT.BANNER);
+//                        break;
 
                     case WORTISE:
                         WortiseSdk.initialize(activity, wortiseAppId);
