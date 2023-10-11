@@ -5,7 +5,7 @@ import static com.ymg.ads.sdk.util.Constant.APPLOVIN_DISCOVERY;
 import static com.ymg.ads.sdk.util.Constant.APPLOVIN_MAX;
 import static com.ymg.ads.sdk.util.Constant.FAN;
 import static com.ymg.ads.sdk.util.Constant.GOOGLE_AD_MANAGER;
-import static com.ymg.ads.sdk.util.Constant.IRONSOURCE;
+//import static com.ymg.ads.sdk.util.Constant.IRONSOURCE;
 import static com.ymg.ads.sdk.util.Constant.STARTAPP;
 import static com.ymg.ads.sdk.util.Constant.UNITY;
 import static com.ymg.ads.sdk.util.Constant.WORTISE;
@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
         btnInterstitial.setOnClickListener(v -> {
             startActivity(new Intent(getApplicationContext(), SecondActivity.class));
             showInterstitialAd();
-            destroyBannerAd();
+//            destroyBannerAd();
         });
 
         btnRewarded = findViewById(R.id.btn_rewarded);
@@ -130,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
                 .setStartappAppId(Constant.STARTAPP_APP_ID)
                 .setUnityGameId(Constant.UNITY_GAME_ID)
                 .setAppLovinSdkKey(getResources().getString(R.string.applovin_sdk_key))
-                .setIronSourceAppKey(Constant.IRONSOURCE_APP_KEY)
+//                .setIronSourceAppKey(Constant.IRONSOURCE_APP_KEY)
                 .setWortiseAppId(Constant.WORTISE_APP_ID)
                 .setDebug(BuildConfig.DEBUG)
                 .build();
@@ -175,7 +175,7 @@ public class MainActivity extends AppCompatActivity {
                 .setUnityBannerId(Constant.UNITY_BANNER_ID)
                 .setAppLovinBannerId(Constant.APPLOVIN_BANNER_ID)
                 .setAppLovinBannerZoneId(Constant.APPLOVIN_BANNER_ZONE_ID)
-                .setIronSourceBannerId(Constant.IRONSOURCE_BANNER_ID)
+//                .setIronSourceBannerId(Constant.IRONSOURCE_BANNER_ID)
                 .setWortiseBannerId(Constant.WORTISE_BANNER_ID)
                 .setDarkTheme(sharedPref.getIsDarkTheme())
                 .build();
@@ -192,7 +192,7 @@ public class MainActivity extends AppCompatActivity {
                 .setUnityBannerId(Constant.UNITY_BANNER_ID)
                 .setAppLovinBannerId(Constant.APPLOVIN_BANNER_ID)
                 .setAppLovinBannerZoneId(Constant.APPLOVIN_BANNER_ZONE_ID)
-                .setIronSourceBannerId(Constant.IRONSOURCE_BANNER_ID)
+//                .setIronSourceBannerId(Constant.IRONSOURCE_BANNER_ID)
                 .setDarkTheme(sharedPref.getIsDarkTheme())
                 .build();
     }
@@ -208,7 +208,7 @@ public class MainActivity extends AppCompatActivity {
                 .setUnityInterstitialId(Constant.UNITY_INTERSTITIAL_ID)
                 .setAppLovinInterstitialId(Constant.APPLOVIN_INTERSTITIAL_ID)
                 .setAppLovinInterstitialZoneId(Constant.APPLOVIN_INTERSTITIAL_ZONE_ID)
-                .setIronSourceInterstitialId(Constant.IRONSOURCE_INTERSTITIAL_ID)
+//                .setIronSourceInterstitialId(Constant.IRONSOURCE_INTERSTITIAL_ID)
                 .setWortiseInterstitialId(Constant.WORTISE_INTERSTITIAL_ID)
                 .setInterval(Constant.INTERSTITIAL_AD_INTERVAL)
                 .build(() -> {
@@ -227,7 +227,7 @@ public class MainActivity extends AppCompatActivity {
                 .setUnityRewardedId(Constant.UNITY_REWARDED_ID)
                 .setApplovinMaxRewardedId(Constant.APPLOVIN_MAX_REWARDED_ID)
                 .setApplovinDiscRewardedZoneId(Constant.APPLOVIN_DISC_REWARDED_ZONE_ID)
-                .setIronSourceRewardedId(Constant.IRONSOURCE_REWARDED_ID)
+//                .setIronSourceRewardedId(Constant.IRONSOURCE_REWARDED_ID)
                 .setWortiseRewardedId(Constant.WORTISE_REWARDED_ID)
                 .build(new OnRewardedAdCompleteListener() {
                     @Override
@@ -316,7 +316,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        destroyBannerAd();
+//        destroyBannerAd();
         destroyAppOpenAd();
         Constant.isAppOpen = false;
     }
@@ -369,9 +369,9 @@ public class MainActivity extends AppCompatActivity {
                 case "Unity Ads":
                     Constant.AD_NETWORK = UNITY;
                     break;
-                case "ironSource":
-                    Constant.AD_NETWORK = IRONSOURCE;
-                    break;
+//                case "ironSource":
+//                    Constant.AD_NETWORK = IRONSOURCE;
+//                    break;
                 case "FAN (Waterfall)":
                     Constant.AD_NETWORK = FAN;
                     break;
@@ -451,7 +451,7 @@ public class MainActivity extends AppCompatActivity {
         dialog.setCancelable(false);
         dialog.setPositiveButton("Exit", (dialogInterface, i) -> {
             super.onBackPressed();
-            destroyBannerAd();
+//            destroyBannerAd();
             destroyAppOpenAd();
             Constant.isAppOpen = false;
         });
@@ -459,9 +459,9 @@ public class MainActivity extends AppCompatActivity {
         dialog.show();
     }
 
-    private void destroyBannerAd() {
-        bannerAd.destroyAndDetachBanner();
-    }
+//    private void destroyBannerAd() {
+//        bannerAd.destroyAndDetachBanner();
+//    }
 
     private void destroyAppOpenAd() {
         if (Constant.FORCE_TO_SHOW_APP_OPEN_AD_ON_START) {

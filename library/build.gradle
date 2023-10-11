@@ -49,14 +49,14 @@ dependencies {
     //AdMob mediation
     implementation 'com.google.ads.mediation:applovin:11.10.1.0'
     implementation 'com.google.ads.mediation:unity:4.8.0.0'
-    implementation 'com.google.ads.mediation:ironsource:7.3.1.0'
+//    implementation 'com.google.ads.mediation:ironsource:7.3.1.0'
     implementation 'com.google.ads.mediation:facebook:6.14.0.0'
 
     //Applovin mediation
     implementation 'com.applovin.mediation:google-ad-manager-adapter:22.2.0.0'
     implementation 'com.applovin.mediation:google-adapter:22.2.0.0'
     implementation 'com.applovin.mediation:unityads-adapter:4.8.0.0'
-    implementation 'com.applovin.mediation:ironsource-adapter:7.3.1.1.0'
+//    implementation 'com.applovin.mediation:ironsource-adapter:7.3.1.1.0'
     implementation 'com.applovin.mediation:facebook-adapter:6.14.0.0'
 
     //ironSource mediation
@@ -71,7 +71,7 @@ dependencies {
     implementation 'com.unity3d.mediation:admob-adapter:1.1.0'
     implementation 'com.unity3d.mediation:applovin-adapter:1.1.0'
     implementation 'com.unity3d.mediation:facebook-adapter:1.1.1'
-    implementation 'com.unity3d.mediation:ironsource-adapter:1.1.0'
+//    implementation 'com.unity3d.mediation:ironsource-adapter:1.1.0'
 
     //GDPR
     implementation 'com.google.android.ump:user-messaging-platform:2.0.0'
